@@ -5,15 +5,15 @@ The goal of this assessment is to test a simplistic web app, note any bugs, and 
 
 ### Questions
 * Describe what bundle.min.js is doing to the page, and try to determine what would happen if the script were not present.
-    * bundle.min.js is displaying the content of this webpage . Without the script, there would be no content (no button, no text, etc).
+    * bundle.min.js is displaying the content of this webpage. Without the script, there would be no content (no button, no text, etc), just a bunch of divs.
 * The button triggers a network request. Review these requests and note any inconsistencies if any. Look for anything notable in the console output
-    * Whenever the button triggers a network request for 'https://reqres.in/api/colors/0, it runs into a 404 error, which is displayed in the console.
+    * The primary inconsistency is that whenever the button triggers a network request for 'https://reqres.in/api/colors/0, it runs into a 404 error, which is displayed in the console.
 * Does the interface function as described?
-    * No. The interface fails when randomly hitting the 'https://reqres.in/api/colors/0' api endpoint. In addition, when the page is refreshed, the previous color is not remembered, but the color before the last one.
+    * No. The interface fails when randomly hitting the 'https://reqres.in/api/colors/0' api endpoint. In addition, when the page is refreshed, the previous color is not remembered. Instead the color before the last is retained/remembered.
 * Are there any missing validation rules the code should be following?
-    * The 'https://reqres.in/api/colors/0' endpoint should be validated before displaying the new color line.
+    * The 'https://reqres.in/api/colors/0' endpoint should be validated before displaying the new color line. In other words, the new color line is populated before it is verified that the color has been changed from hitting the API endpoint
 * How are styles being applied to the elements on the page?
-    * The css of the the page is being change for the <body> element to different 'rgb' values for the background-color property.
+    * The css of the the page is being change for the <body> element to different 'rgb' values for the appropriate background-color property.
 * Document any steps necessary to reproduce bugs. Include any steps needed to reset the app to its initial state.
     * To reset the web app, open the web console in the browser and type in 'localStorage.clear()'. Then, refresh the page.
     * To test the network bug, first open the web debug console to the network tab or console tab.
